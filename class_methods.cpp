@@ -60,8 +60,11 @@ void MainClass::swap_min_max(int min_number)
 {
 	if (min_number == 1)
 	{
-		unsigned int min_index = *std::find(begin(vector1), end(vector1), return_min(1)); //если мин. элементов больше одного, вернёт индекс первого
-		unsigned int max_index = *std::find(begin(vector2), end(vector2), return_max(2)); //если мин. элементов больше одного, вернёт индекс первого
+		auto t_min_index = std::find(begin(vector1), end(vector1), return_min(1)); //если мин. элементов больше одного, вернёт индекс первого
+		auto t_max_index = std::find(begin(vector2), end(vector2), return_max(2)); //если мин. элементов больше одного, вернёт индекс первого
+
+		int min_index = t_min_index - begin(vector1);
+		int max_index = t_max_index - begin(vector2);
 
 		int temp_min = vector1.at(min_index);
 		int temp_max = vector2.at(max_index);
@@ -72,8 +75,11 @@ void MainClass::swap_min_max(int min_number)
 
 	else if (min_number == 2)
 	{
-		unsigned int min_index = *std::find(begin(vector2), end(vector2), return_min(2)); //если мин. элементов больше одного, вернёт индекс первого
-		unsigned int max_index = *std::find(begin(vector1), end(vector1), return_max(1)); //если мин. элементов больше одного, вернёт индекс первого
+		auto t_min_index = std::find(begin(vector2), end(vector2), return_min(2)); //если мин. элементов больше одного, вернёт индекс первого
+		auto t_max_index = std::find(begin(vector1), end(vector1), return_max(1)); //если мин. элементов больше одного, вернёт индекс первого
+
+		int min_index = t_min_index - begin(vector2);
+		int max_index = t_max_index - begin(vector1);
 
 		int temp_min = vector2.at(min_index);
 		int temp_max = vector1.at(max_index);
